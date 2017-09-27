@@ -1,0 +1,25 @@
+j{
+  "name": "edgen",
+  "version": "1.0.0",
+  "description": "EDCAN server",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha ./app.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iwin247/EDGEN.git"
+  },
+  "keywords": [
+    "edcan",
+    "EDCAN",
+    "iwin247",
+    "sunrin"
+  ],
+  "author": "iwin247",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iwin247/EDGEN/issues"
+  },
+  "homepage": "https://github.com/iwin247/EDGEN#readme"
+}
