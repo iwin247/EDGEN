@@ -132,6 +132,11 @@ function createApplication(app_name, path) {
       complete();
     });
 
+    mkdir(path + '/func', function(){
+      write(path + '/func/index.js', func);
+      complete();
+    });
+
     mkdir(path + '/bin', function(){
       write(path + '/bin/www', www);
       complete();
