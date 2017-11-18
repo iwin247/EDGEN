@@ -1,7 +1,4 @@
 module.exports = (router, Users, passport) =>{
-  router.get('/signin', async (req,res)=>{
-    res.redirect('/login.html');
-  });
   router.post('/signup', async (req, res) => {
       const data = req.body;
       const new_user = new Users(data);
@@ -78,7 +75,7 @@ module.exports = (router, Users, passport) =>{
     } else  res.status(401).send("unauthed");
   })
 
-  .get('/tw/token', passport.authenticate('twitter-token'), (req, res) =>{
+  .get('/tw/token', passport.authenticate('twitter-token'), async(req, res) =>{
     if(req.user) {
       const user = await Users.findOne({twitter_id: req.user._json.id}, {_id: 0});
       if(users) res.status(200).send(users);

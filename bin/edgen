@@ -82,7 +82,7 @@ function createApplication(app_name, path) {
   var mongo = loadTemplate('js/mongo/index.js');
   var mongo_err = loadTemplate('js/mongo/err.js');
   var index = loadTemplate('js/routes/index.js');
-  var models_index = loadTemplate('js/routes/models/index.js');
+  var func = loadTemplate('js/func/index.js');
   var users = loadTemplate('js/routes/models/users.js');
   var auth = loadTemplate('js/routes/models/auth.js');
   var social = loadTemplate('js/passport/social.json');

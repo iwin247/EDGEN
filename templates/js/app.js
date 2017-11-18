@@ -24,7 +24,6 @@ let passport = require('./passport')(Users);
 
 
 //set engin
-app.set('port', port);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
