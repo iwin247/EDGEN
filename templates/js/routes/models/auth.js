@@ -9,7 +9,7 @@ module.exports = (router, Users, passport) =>{
         if(e instanceof ValidationError) return res.status(400).json({message: e.message});
         if(e instanceof paramsError) return res.status(400).json({message: e.message});
       }
-      res.redirect('/');
+      res.status(200).json(new_user);
   })
 
   .get('/auto/:token', (req, res)=>{
@@ -98,7 +98,7 @@ module.exports = (router, Users, passport) =>{
 
   .post('/logout', (req, res)=>{
     req.logout();
-    return res.redirect('/');
+    res.status(200).json({message: "logout success"});
   })
 
   return router;

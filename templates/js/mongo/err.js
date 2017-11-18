@@ -1,5 +1,5 @@
 module.exports = (Users, rndString)=>{
-  var user_params = ['id', 'passwd', 'nick_name'];
+  var user_params = ['id', 'passwd', 'name'];
   Users.pre('save', async function(next, done){
     const user = this;
     let result = await user_params.every(str => user[str] != undefined && user[str] != null && user[str].length > 0);

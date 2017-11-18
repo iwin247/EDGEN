@@ -21,7 +21,8 @@ let app = express();
 //module setting
 import {Users} from './mongo';
 let passport = require('./passport')(Users);
-
+//function
+require('./func');
 
 //set engin
 app.set('views', path.join(__dirname, 'views'));

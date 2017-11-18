@@ -1,6 +1,6 @@
 module.exports = (router, Users, passport, rndString) =>{
-  var users = require('./models/users')(express.Router(), Users, passport);
-  var auth = require('./models/auth')(express.Router(), Users, passport);
+  var users = require('./models/users')(router, Users, passport);
+  var auth = require('./models/auth')(router, Users, passport);
 
   router.use('/auth', auth);
   router.use('/users', users);
