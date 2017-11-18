@@ -126,9 +126,9 @@ function createApplication(app_name, path) {
     });
 
     mkdir(path + '/routes/models', function(){
-      write(path + '/routes/index.js', models_index);
-      write(path + '/routes/users.js', users);
-      write(path + '/routes/auth.js', auth);
+      write(path + '/routes/models/index.js', models_index);
+      write(path + '/routes/models/users.js', users);
+      write(path + '/routes/models/auth.js', auth);
       complete();
     });
 
@@ -169,7 +169,7 @@ function createApplication(app_name, path) {
         name: app_name,
         version: '0.0.0',
         private: true,
-        scripts: {  "test": "NODE_ENV=test mocha ./app.spec.js", "start": "cross-env nodemon --ignore 'public/js/*' --exec babel-node www" },
+        scripts: {  "test": "NODE_ENV=test mocha ./app.spec.js", "start": "cross-env nodemon --ignore 'public/js/*' --exec babel-node ./bin/www" },
         dependencies: {
           "Q": "*",
           "body-parser": "~1.15.1",
@@ -188,7 +188,9 @@ function createApplication(app_name, path) {
           "passport-local": "^1.0.0",
           "passport-twitter-token": "*",
           "randomstring": "*",
-          "serve-favicon": "~2.3.0"
+          "serve-favicon": "~2.3.0",
+          "axios": "*",
+          "moment-timezone": "*"
       },
       devDependencies: {
         "babel-cli": "^6.26.0",
@@ -307,8 +309,7 @@ function main() {
   var appName = path.basename(path.resolve(destinationPath));
 
   // Template engine
-  program.template = 'jade';
-  if (program.ejs) program.template = 'ejs';
+  program.template = 'ejs';
   if (program.hogan) program.template = 'hjs';
   if (program.hbs) program.template = 'hbs';
 
