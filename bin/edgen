@@ -126,7 +126,6 @@ function createApplication(app_name, path) {
     });
 
     mkdir(path + '/routes/models', function(){
-      write(path + '/routes/models/index.js', models_index);
       write(path + '/routes/models/users.js', users);
       write(path + '/routes/models/auth.js', auth);
       complete();
