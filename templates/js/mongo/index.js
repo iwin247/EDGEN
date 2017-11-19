@@ -18,6 +18,7 @@ var UsersSchema = mongoose.Schema({
   facebook_id: {type: String},
   github_id: {type: String},
   twitter_id: {type: String},
+  is_admin: {type: Boolean, default: 0}
 });
 
 require('./err')(UsersSchema, rndString);

@@ -29,7 +29,7 @@ module.exports = (router, Users, passport) =>{
 
   //local auth
   .post('/signin', passport.authenticate('local'), (req,res)=>{
-    res.redirect('/');
+    res.status(200).json({message: "signin success"});
   })
 
   //social auth
