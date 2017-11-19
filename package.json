@@ -1,6 +1,6 @@
 {
   "name": "edgen",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "preferGlobal": true,
   "bin": {
     "edgen": "./bin/edgen"
