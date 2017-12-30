@@ -1,6 +1,4 @@
 module.exports = (router, Users)=>{
-  router.use(isAuth);
-
   router.get('/', async (req, res)=>{
     if(req.user.is_admin){
       var users = await Users.find();

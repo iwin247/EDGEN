@@ -7,7 +7,7 @@ module.exports = (router, Users, passport, rndString) =>{
 
   router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
-  })
+  });
 
   return router;
 };
