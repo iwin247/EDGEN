@@ -65,7 +65,7 @@ module.exports = (router, Users, passport) =>{
             token: rndString.generate(),
           });
           try{
-            var facebook_user = await github_user.save();
+            var facebook_user = await facebook_user.save();
           }catch(e){
             if(e instanceof user_duplicate) return res.status(409).json({message:"already exist"});
             if(e instanceof ValidationError) return res.status(400).json({message: e.message});
