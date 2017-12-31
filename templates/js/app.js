@@ -2,14 +2,14 @@ import express from 'express';
 import logger from 'morgan';
 import favicon from 'serve-favicon';
 import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
 import cookie from 'cookie';
+import cookieParser from 'cookie-parser';
+import cookieSession from 'cookie-session';
 import path from 'path';
 import randomstring from 'randomstring';
 import fs from 'fs';
 import axios from 'axios';
 import moment from 'moment-timezone';
-import cookieSession from 'cookie-session';
 let debug = require('debug')('dicon:server');
 
 //external module setting
@@ -21,6 +21,7 @@ let app = express();
 //module setting
 import {Users} from './mongo';
 let passport = require('./passport')(Users);
+
 //function
 require('./func');
 

@@ -21,6 +21,7 @@ var UsersSchema = mongoose.Schema({
   is_admin: {type: Boolean, default: 0}
 });
 
+
 require('./err')(UsersSchema, rndString);
 
 var Users = mongoose.model("users", UsersSchema);
