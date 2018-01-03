@@ -46,7 +46,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //router setting
-var router = require('./routes/index')(express.Router(), Users, passport, now_time);
+var router = require('./routes')(express.Router(), Users, passport, now_time);
 
 //router setting
 app.use('/', router);

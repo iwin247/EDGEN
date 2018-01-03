@@ -19,7 +19,7 @@ module.exports = (Users) =>{
     session: true, // 세션에 저장 여부
     passReqToCallback: false,
   }, async function(id, passwd, done){
-    cosnt user = await Users.findOne({id: id, passwd: passwd}, {__v: 0, _id:0});
+    const user = await Users.findOne({id: id, passwd: passwd}, {__v: 0, _id:0});
     if(user) return done(null, user);
     else return done(null, false, {message: "아이디나 비밀번호가 틀렸습니다"})
   }));

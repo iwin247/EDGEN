@@ -12,19 +12,11 @@ module.exports = (router, Users, passport) =>{
       res.status(200).json(new_user);
   })
 
-  .get('/auto/:token', (req, res)=>{
-     var params = ['token'];
-
-     if(check_param(req.params, params)){
-       const token = req.params.token;
-       Users.findOne({token: token}, {_id: 0, passwd: 0},(err, user) =>{
-         if(err) return res.status(500).send("DB error");
-         if(user) return res.status(200).json({id: user.id, name: user.name, token: user.token});
-         else return res.status(404).send("user not found");
-       });
-     }else{
-       return res.status(400).send("param missing or null");
-     }
+  .get('/auto/:token', async (req, res)=>{
+    const token = req.params.token;
+    const user = await Users.findOne({token: token}, {_id: 0, passwd: 0});
+    if(user) return res.status(200).json({id: user.id, name: user.name, token: user.token});
+    else return res.status(404).send("user not found");
   })
 
   //local auth
