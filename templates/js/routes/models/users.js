@@ -1,4 +1,4 @@
-module.exports = (router, Users)=>{
+module.exports = (router, Users, passport)=>{
   router.get('/', async (req, res)=>{
     if(req.user.is_admin){
       var users = await Users.find();

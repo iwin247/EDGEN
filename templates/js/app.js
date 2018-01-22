@@ -2,14 +2,13 @@ import express from 'express';
 import logger from 'morgan';
 import favicon from 'serve-favicon';
 import bodyParser from 'body-parser';
-import cookie from 'cookie';
 import cookieParser from 'cookie-parser';
-import cookieSession from 'cookie-session';
+import cookie from 'cookie';
 import path from 'path';
-import randomstring from 'randomstring';
 import fs from 'fs';
 import axios from 'axios';
 import moment from 'moment-timezone';
+import cookieSession from 'cookie-session';
 let debug = require('debug')('dicon:server');
 
 //external module setting
@@ -46,7 +45,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //router setting
-var router = require('./routes')(express.Router(), Users, passport, now_time);
+var router = require('./routes/index')(express, Users, passport, now_time);
 
 //router setting
 app.use('/', router);
