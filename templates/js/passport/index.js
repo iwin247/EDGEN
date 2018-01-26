@@ -11,7 +11,6 @@ module.exports = (Users) =>{
   passport.serializeUser((user, done)=>{done(null, user);});
   passport.deserializeUser((obj, done)=>{done(null, obj);});
 
-
   //passport setting
   passport.use(new LocalStrategy({ // local 전략을 세움
     usernameField: 'id',

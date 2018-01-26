@@ -22,7 +22,3 @@ global.isAuth = isAuth;
 global.user_duplicate = user_duplicate;
 global.ValidationError = ValidationError;
 global.paramsError = paramsError;
-
-global.check_param = (req_param, params) =>{
-  return
-}

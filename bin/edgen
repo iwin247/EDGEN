@@ -181,7 +181,7 @@ function createApplication(app_name, path) {
           "cookie-session": "^2.0.0-beta.3",
           "cross-env": "^5.1.0",
           "debug": "~2.2.0",
-          "ejs": "~2.4.1",
+          "ejs": "~2.4.3",
           "express": "~4.13.4",
           "mongoose": "*",
           "morgan": "~1.7.0",
@@ -194,7 +194,8 @@ function createApplication(app_name, path) {
           "randomstring": "*",
           "serve-favicon": "~2.3.0",
           "axios": "*",
-          "moment-timezone": "*"
+          "moment-timezone": "*",
+          "await-to-js": "*"
       },
       devDependencies: {
         "babel-cli": "^6.26.0",
@@ -223,7 +224,6 @@ function createApplication(app_name, path) {
       case 'compass':
         pkg.dependencies['node-compass'] = '0.2.3';
         break;
-      case 'stylus':
         pkg.dependencies['stylus'] = '0.54.5';
         break;
       case 'sass':
@@ -250,6 +250,7 @@ function createApplication(app_name, path) {
       write(path + '/passport/social.json', social);
       complete();
     });
+    mkdir(path + '/download');
 
     write(path + '/.gitignore', fs.readFileSync(__dirname + '/../templates/js/gitignore', 'utf-8'));
     write(path + '/.babelrc', fs.readFileSync(__dirname + '/../templates/js/babelrc', 'utf-8'));

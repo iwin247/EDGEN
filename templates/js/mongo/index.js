@@ -14,18 +14,31 @@ var UsersSchema = mongoose.Schema({
   token: {type: String},
   setting: {type: String},
   profile: {type: String},
-  profile_img: {type: String},
+  profile_img: {type: String}, // url을 넣으주면됨
   facebook_id: {type: String},
   github_id: {type: String},
   twitter_id: {type: String},
-  is_admin: {type: Boolean, default: 0}
+  is_admin: {type: Boolean, default: false}//어드민 체크 할때 0: 일반 1: 어드민
 });
 
+var BoardsSchema = mongoose.Schema({
+  board_id: {type: String},
+  writer: {type: String},
+  title: {type: String},
+  contents: {type: String},
+  comment:[{
+    id: {type: Number},
+    writer: {type: String},
+    summary: {type: String}
+  }]
+});
 
-require('./err')(UsersSchema, rndString);
+require('./err')(UsersSchema, BoardsSchema, rndString);
 
 var Users = mongoose.model("users", UsersSchema);
+var Boards = mongoose.model("boards", BoardsSchema);
 
 exports.Users = Users;
+exports.Boards = Boards;
 
 export default db;
